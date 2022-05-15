@@ -297,7 +297,27 @@ export const lists: Lists = {
       }
     },
     fields: {
-      authorized: integer(),
+      approved: select({
+        options: [
+          { label: 'Yes', value: 'yes' },
+          { label: 'No', value: 'no' },
+        ],
+        defaultValue: 'no',
+        ui: {
+          displayMode: 'segmented-control',
+        },
+      }),
+      teammates: select({
+        options: [
+          { label: 'Working Solo', value: 'solo' },
+          { label: 'Looking For Teammates', value: 'looking' },
+          { label: 'Have a team', value: 'have-a-team' },
+        ],
+        defaultValue: 'looking',
+        ui: {
+          displayMode: 'segmented-control',
+        },
+      }),
       message: document({
         formatting: true,
         layouts: [
@@ -309,6 +329,14 @@ export const lists: Lists = {
         ],
         links: true,
         dividers: true,
+      }),
+      agreedToRequirements: integer({
+        validation: {isRequired: true},
+        defaultValue: 0
+      }),
+      agreedToRules: integer({
+        validation: {isRequired: true},
+        defaultValue: 0
       }),
       hacker: relationship({
         ref: 'Hacker',
