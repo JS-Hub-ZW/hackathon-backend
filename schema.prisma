@@ -12,14 +12,21 @@ generator client {
 }
 
 model User {
-  id               String   @id @default(cuid())
-  name             String   @default("")
-  email            String   @unique @default("")
-  password         String
-  posts            Post[]   @relation("Post_author")
-  role             String?  @default("guest")
-  from_Hacker_user Hacker[] @relation("Hacker_user")
-  from_Hoster_user Hoster[] @relation("Hoster_user")
+  id                    String        @id @default(cuid())
+  name                  String        @default("")
+  email                 String        @unique @default("")
+  password              String
+  posts                 Post[]        @relation("Post_author")
+  role                  String?       @default("guest")
+  hacker                Hacker?       @relation("Hacker_user")
+  hoster                Hoster?       @relation("Hoster_user")
+  hackathons            Hackathon?    @relation("User_hackathons", fields: [hackathonsId], references: [id])
+  hackathonsId          String?       @map("hackathons")
+  applications          Application[] @relation("User_applications")
+  from_Hackathon_user   Hackathon[]   @relation("Hackathon_user")
+  from_Application_user Application[] @relation("Application_user")
+
+  @@index([hackathonsId])
 }
 
 model Post {
@@ -43,7 +50,7 @@ model Tag {
 
 model Hackathon {
   id                       String        @id @default(cuid())
-  approved                 Int?
+  approved                 String?       @default("no")
   name                     String        @default("")
   type                     String?       @default("online")
   maxParticipants          Int?
@@ -67,7 +74,11 @@ model Hackathon {
   potraitImage_id          String?
   tags                     HackTag[]     @relation("Hackathon_tags")
   applications             Application[] @relation("Application_hackathon")
-  from_Hoster_hackathons   Hoster[]      @relation("Hoster_hackathons")
+  user                     User?         @relation("Hackathon_user", fields: [userId], references: [id])
+  userId                   String?       @map("user")
+  from_User_hackathons     User[]        @relation("User_hackathons")
+
+  @@index([userId])
 }
 
 model HackTag {
@@ -77,17 +88,20 @@ model HackTag {
 }
 
 model Application {
-  id                       String     @id @default(cuid())
-  authorized               Int?
-  message                  String     @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
-  hacker                   Hacker?    @relation("Application_hacker", fields: [hackerId], references: [id])
-  hackerId                 String?    @map("hacker")
-  hackathon                Hackathon? @relation("Application_hackathon", fields: [hackathonId], references: [id])
-  hackathonId              String?    @map("hackathon")
-  from_Hacker_applications Hacker[]   @relation("Hacker_applications")
+  id                     String     @id @default(cuid())
+  authorized             Int?
+  message                String     @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  hacker                 Hacker?    @relation("Application_hacker", fields: [hackerId], references: [id])
+  hackerId               String?    @map("hacker")
+  hackathon              Hackathon? @relation("Application_hackathon", fields: [hackathonId], references: [id])
+  hackathonId            String?    @map("hackathon")
+  user                   User?      @relation("Application_user", fields: [userId], references: [id])
+  userId                 String?    @map("user")
+  from_User_applications User[]     @relation("User_applications")
 
   @@index([hackerId])
   @@index([hackathonId])
+  @@index([userId])
 }
 
 model Hacker {
@@ -97,26 +111,20 @@ model Hacker {
   github                  String        @default("")
   gitlab                  String        @default("")
   user                    User?         @relation("Hacker_user", fields: [userId], references: [id])
-  userId                  String?       @map("user")
-  applications            Application[] @relation("Hacker_applications")
+  userId                  String?       @unique @map("user")
   subscribed              Int?
   from_Application_hacker Application[] @relation("Application_hacker")
-
-  @@index([userId])
 }
 
 model Hoster {
-  id         String      @id @default(cuid())
-  image      String      @default("")
-  name       String      @default("")
-  location   String      @default("")
-  linkedin   String      @default("")
-  twitter    String      @default("")
-  facebook   String      @default("")
-  hackathons Hackathon[] @relation("Hoster_hackathons")
-  user       User?       @relation("Hoster_user", fields: [userId], references: [id])
-  userId     String?     @map("user")
+  id         String  @id @default(cuid())
+  image      String  @default("")
+  name       String  @default("")
+  location   String  @default("")
+  linkedin   String  @default("")
+  twitter    String  @default("")
+  facebook   String  @default("")
+  user       User?   @relation("Hoster_user", fields: [userId], references: [id])
+  userId     String? @unique @map("user")
   subscribed Int?
-
-  @@index([userId])
 }

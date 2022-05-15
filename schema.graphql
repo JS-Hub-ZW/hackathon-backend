@@ -14,6 +14,16 @@ type User {
   ): [Post!]
   postsCount(where: PostWhereInput! = {}): Int
   role: String
+  hacker: Hacker
+  hoster: Hoster
+  hackathons: Hackathon
+  applications(
+    where: ApplicationWhereInput! = {}
+    orderBy: [ApplicationOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [Application!]
+  applicationsCount(where: ApplicationWhereInput! = {}): Int
 }
 
 type PasswordState {
@@ -34,6 +44,10 @@ input UserWhereInput {
   email: StringFilter
   posts: PostManyRelationFilter
   role: StringNullableFilter
+  hacker: HackerWhereInput
+  hoster: HosterWhereInput
+  hackathons: HackathonWhereInput
+  applications: ApplicationManyRelationFilter
 }
 
 input IDFilter {
@@ -109,6 +123,12 @@ input NestedStringNullableFilter {
   not: NestedStringNullableFilter
 }
 
+input ApplicationManyRelationFilter {
+  every: ApplicationWhereInput
+  some: ApplicationWhereInput
+  none: ApplicationWhereInput
+}
+
 input UserOrderByInput {
   id: OrderDirection
   name: OrderDirection
@@ -127,6 +147,10 @@ input UserUpdateInput {
   password: String
   posts: PostRelateToManyForUpdateInput
   role: String
+  hacker: HackerRelateToOneForUpdateInput
+  hoster: HosterRelateToOneForUpdateInput
+  hackathons: HackathonRelateToOneForUpdateInput
+  applications: ApplicationRelateToManyForUpdateInput
 }
 
 input PostRelateToManyForUpdateInput {
@@ -134,6 +158,31 @@ input PostRelateToManyForUpdateInput {
   set: [PostWhereUniqueInput!]
   create: [PostCreateInput!]
   connect: [PostWhereUniqueInput!]
+}
+
+input HackerRelateToOneForUpdateInput {
+  create: HackerCreateInput
+  connect: HackerWhereUniqueInput
+  disconnect: Boolean
+}
+
+input HosterRelateToOneForUpdateInput {
+  create: HosterCreateInput
+  connect: HosterWhereUniqueInput
+  disconnect: Boolean
+}
+
+input HackathonRelateToOneForUpdateInput {
+  create: HackathonCreateInput
+  connect: HackathonWhereUniqueInput
+  disconnect: Boolean
+}
+
+input ApplicationRelateToManyForUpdateInput {
+  disconnect: [ApplicationWhereUniqueInput!]
+  set: [ApplicationWhereUniqueInput!]
+  create: [ApplicationCreateInput!]
+  connect: [ApplicationWhereUniqueInput!]
 }
 
 input UserUpdateArgs {
@@ -147,11 +196,35 @@ input UserCreateInput {
   password: String
   posts: PostRelateToManyForCreateInput
   role: String
+  hacker: HackerRelateToOneForCreateInput
+  hoster: HosterRelateToOneForCreateInput
+  hackathons: HackathonRelateToOneForCreateInput
+  applications: ApplicationRelateToManyForCreateInput
 }
 
 input PostRelateToManyForCreateInput {
   create: [PostCreateInput!]
   connect: [PostWhereUniqueInput!]
+}
+
+input HackerRelateToOneForCreateInput {
+  create: HackerCreateInput
+  connect: HackerWhereUniqueInput
+}
+
+input HosterRelateToOneForCreateInput {
+  create: HosterCreateInput
+  connect: HosterWhereUniqueInput
+}
+
+input HackathonRelateToOneForCreateInput {
+  create: HackathonCreateInput
+  connect: HackathonWhereUniqueInput
+}
+
+input ApplicationRelateToManyForCreateInput {
+  create: [ApplicationCreateInput!]
+  connect: [ApplicationWhereUniqueInput!]
 }
 
 type Post {
@@ -310,7 +383,7 @@ input TagCreateInput {
 
 type Hackathon {
   id: ID!
-  approved: Int
+  approved: String
   name: String
   type: String
   maxParticipants: Int
@@ -336,6 +409,7 @@ type Hackathon {
     skip: Int! = 0
   ): [Application!]
   applicationsCount(where: ApplicationWhereInput! = {}): Int
+  user: User
 }
 
 type Hackathon_description_Document {
@@ -392,7 +466,7 @@ input HackathonWhereInput {
   OR: [HackathonWhereInput!]
   NOT: [HackathonWhereInput!]
   id: IDFilter
-  approved: IntNullableFilter
+  approved: StringNullableFilter
   name: StringFilter
   type: StringNullableFilter
   maxParticipants: IntNullableFilter
@@ -402,6 +476,7 @@ input HackathonWhereInput {
   location: StringFilter
   tags: HackTagManyRelationFilter
   applications: ApplicationManyRelationFilter
+  user: UserWhereInput
 }
 
 input IntNullableFilter {
@@ -421,12 +496,6 @@ input HackTagManyRelationFilter {
   none: HackTagWhereInput
 }
 
-input ApplicationManyRelationFilter {
-  every: ApplicationWhereInput
-  some: ApplicationWhereInput
-  none: ApplicationWhereInput
-}
-
 input HackathonOrderByInput {
   id: OrderDirection
   approved: OrderDirection
@@ -440,7 +509,7 @@ input HackathonOrderByInput {
 }
 
 input HackathonUpdateInput {
-  approved: Int
+  approved: String
   name: String
   type: String
   maxParticipants: Int
@@ -454,6 +523,7 @@ input HackathonUpdateInput {
   potraitImage: ImageFieldInput
   tags: HackTagRelateToManyForUpdateInput
   applications: ApplicationRelateToManyForUpdateInput
+  user: UserRelateToOneForUpdateInput
 }
 
 input ImageFieldInput {
@@ -473,20 +543,13 @@ input HackTagRelateToManyForUpdateInput {
   connect: [HackTagWhereUniqueInput!]
 }
 
-input ApplicationRelateToManyForUpdateInput {
-  disconnect: [ApplicationWhereUniqueInput!]
-  set: [ApplicationWhereUniqueInput!]
-  create: [ApplicationCreateInput!]
-  connect: [ApplicationWhereUniqueInput!]
-}
-
 input HackathonUpdateArgs {
   where: HackathonWhereUniqueInput!
   data: HackathonUpdateInput!
 }
 
 input HackathonCreateInput {
-  approved: Int
+  approved: String
   name: String
   type: String
   maxParticipants: Int
@@ -500,16 +563,12 @@ input HackathonCreateInput {
   potraitImage: ImageFieldInput
   tags: HackTagRelateToManyForCreateInput
   applications: ApplicationRelateToManyForCreateInput
+  user: UserRelateToOneForCreateInput
 }
 
 input HackTagRelateToManyForCreateInput {
   create: [HackTagCreateInput!]
   connect: [HackTagWhereUniqueInput!]
-}
-
-input ApplicationRelateToManyForCreateInput {
-  create: [ApplicationCreateInput!]
-  connect: [ApplicationWhereUniqueInput!]
 }
 
 type HackTag {
@@ -581,6 +640,7 @@ type Application {
   message: Application_message_Document
   hacker: Hacker
   hackathon: Hackathon
+  user: User
 }
 
 type Application_message_Document {
@@ -599,6 +659,7 @@ input ApplicationWhereInput {
   authorized: IntNullableFilter
   hacker: HackerWhereInput
   hackathon: HackathonWhereInput
+  user: UserWhereInput
 }
 
 input ApplicationOrderByInput {
@@ -611,18 +672,7 @@ input ApplicationUpdateInput {
   message: JSON
   hacker: HackerRelateToOneForUpdateInput
   hackathon: HackathonRelateToOneForUpdateInput
-}
-
-input HackerRelateToOneForUpdateInput {
-  create: HackerCreateInput
-  connect: HackerWhereUniqueInput
-  disconnect: Boolean
-}
-
-input HackathonRelateToOneForUpdateInput {
-  create: HackathonCreateInput
-  connect: HackathonWhereUniqueInput
-  disconnect: Boolean
+  user: UserRelateToOneForUpdateInput
 }
 
 input ApplicationUpdateArgs {
@@ -635,16 +685,7 @@ input ApplicationCreateInput {
   message: JSON
   hacker: HackerRelateToOneForCreateInput
   hackathon: HackathonRelateToOneForCreateInput
-}
-
-input HackerRelateToOneForCreateInput {
-  create: HackerCreateInput
-  connect: HackerWhereUniqueInput
-}
-
-input HackathonRelateToOneForCreateInput {
-  create: HackathonCreateInput
-  connect: HackathonWhereUniqueInput
+  user: UserRelateToOneForCreateInput
 }
 
 type Hacker {
@@ -654,13 +695,6 @@ type Hacker {
   github: String
   gitlab: String
   user: User
-  applications(
-    where: ApplicationWhereInput! = {}
-    orderBy: [ApplicationOrderByInput!]! = []
-    take: Int
-    skip: Int! = 0
-  ): [Application!]
-  applicationsCount(where: ApplicationWhereInput! = {}): Int
   subscribed: Int
 }
 
@@ -678,7 +712,6 @@ input HackerWhereInput {
   github: StringFilter
   gitlab: StringFilter
   user: UserWhereInput
-  applications: ApplicationManyRelationFilter
   subscribed: IntNullableFilter
 }
 
@@ -697,7 +730,6 @@ input HackerUpdateInput {
   github: String
   gitlab: String
   user: UserRelateToOneForUpdateInput
-  applications: ApplicationRelateToManyForUpdateInput
   subscribed: Int
 }
 
@@ -712,7 +744,6 @@ input HackerCreateInput {
   github: String
   gitlab: String
   user: UserRelateToOneForCreateInput
-  applications: ApplicationRelateToManyForCreateInput
   subscribed: Int
 }
 
@@ -724,13 +755,6 @@ type Hoster {
   linkedin: String
   twitter: String
   facebook: String
-  hackathons(
-    where: HackathonWhereInput! = {}
-    orderBy: [HackathonOrderByInput!]! = []
-    take: Int
-    skip: Int! = 0
-  ): [Hackathon!]
-  hackathonsCount(where: HackathonWhereInput! = {}): Int
   user: User
   subscribed: Int
 }
@@ -750,7 +774,6 @@ input HosterWhereInput {
   linkedin: StringFilter
   twitter: StringFilter
   facebook: StringFilter
-  hackathons: HackathonManyRelationFilter
   user: UserWhereInput
   subscribed: IntNullableFilter
 }
@@ -773,7 +796,6 @@ input HosterUpdateInput {
   linkedin: String
   twitter: String
   facebook: String
-  hackathons: HackathonRelateToManyForUpdateInput
   user: UserRelateToOneForUpdateInput
   subscribed: Int
 }
@@ -790,7 +812,6 @@ input HosterCreateInput {
   linkedin: String
   twitter: String
   facebook: String
-  hackathons: HackathonRelateToManyForCreateInput
   user: UserRelateToOneForCreateInput
   subscribed: Int
 }

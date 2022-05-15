@@ -3,6 +3,11 @@ import config  from './keystone';
 
 const runner = setupTestRunner({ config });
 
+/*
+ *    -> USER TESTS <-      
+ *
+ */
+
 describe('User Tests', () => {
 
     test('Can register user', 
@@ -34,18 +39,20 @@ describe('User Tests', () => {
           const { body } = await graphQLRequest({
             query: `mutation {
               createUser(data: { name: "Thomas Alderson", email: "thomas@example.com", password: "super-secret" role: "guest" }) {
-                id name email password { isSet }
+                id name email role password { isSet }
               }
             }`,
           }).expect(200);
           const person = body.data.createUser;
-
-          console.log("The Person: ", person)
           expect(person.name).toEqual('Thomas Alderson');
           expect(person.email).toEqual('thomas@example.com');
+          expect(person.role).toEqual('guest');
           expect(person.password.isSet).toEqual(true);
         })
       );
-
-
 })
+
+/*
+ *        
+ *
+ */
