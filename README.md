@@ -3,8 +3,8 @@
 This is the backend for the hackathon project
 
 ## Teck Stack
-1. Payload CMS
-2. Mongo DB
+1. Payload CMS (https://payloadcms.com/)
+2. Mongo DB (https://www.mongodb.com/)
 
 ## Introduction
 I used a Headless CMS to create a backend for the hackathon project because no one got time to build a backend with all its features from scratch. A Headless CMS saves everyone's time and allows for easy updates.
