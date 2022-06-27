@@ -8,6 +8,7 @@ const Users: CollectionConfig = {
   },
   access: {
     read: () => true,
+    admin: ({req: { user }}) => user.role == 'admin',
   },
   fields: [
     // Email added by default
