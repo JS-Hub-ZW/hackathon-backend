@@ -43,24 +43,6 @@ Coming Soon
 If you love our work and want to support us, get in touch with us.
 
 
-## Curses
-1. Cursed be the person who does not respect others
-2. Cursed be the person who does not contribute
-3. Cursed be the person who does not follow the pattern
-4. Cursed be the person who does not follow the rules
-5. Cursed be the person who does not follow the guidelines
-6. Cursed be the person who abuses the cluster
-
-## Blessings
-1. Blessed be the person who respects others
-2. Blessed be the person who contributes
-3. Blessed be the person who follows the pattern
-4. Blessed be the person who follows the rules
-5. Blessed be the person who follows the guidelines
-6. Blessed be the person who does not abuse the cluster
-
-
-
 
 
 
