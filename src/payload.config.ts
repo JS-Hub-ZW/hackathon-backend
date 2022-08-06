@@ -10,6 +10,7 @@ import Hackers from './collections/Hackers';
 import Hosters from './collections/Hosters';
 import HackathonCategories from './collections/HackathonCategories';
 import Media from './collections/Media';
+import Sponsors from './collections/Sponsors';
 
 
 export default buildConfig({
@@ -27,6 +28,7 @@ export default buildConfig({
     Applications,
     Hackers,
     Hosters,
+    Sponsors,
     Media
   ],
   typescript: {
