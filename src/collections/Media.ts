@@ -2,6 +2,9 @@
 
 const Media= {
     slug: 'media',
+    access: {
+      read: () => true,
+    },
     upload: {
       staticURL: '/media',
       staticDir: 'media',
