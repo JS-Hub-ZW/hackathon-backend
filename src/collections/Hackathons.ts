@@ -106,6 +106,24 @@ const Hackathons: CollectionConfig = {
             }
           },
         {
+            name: "setting",
+            type: "select",
+            options: [
+                {
+                    value: "public",
+                    label: "Public"
+                },
+                {
+                    value: "private",
+                    label: "Private"
+                }
+            ],
+            defaultValue: "public",
+            admin: {
+                position: "sidebar",
+            }
+        },
+        {
             name: 'approved',
             type: 'select',
             options: [
