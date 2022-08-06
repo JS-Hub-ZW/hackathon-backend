@@ -66,6 +66,12 @@ const Hackathons: CollectionConfig = {
             required: true,
         },
         {
+            name: "sponsors",
+            type: "relationship",
+            relationTo: "sponsors",
+            hasMany: true,
+        },
+        {
             name: 'type',
             type: 'select',
             options: [
