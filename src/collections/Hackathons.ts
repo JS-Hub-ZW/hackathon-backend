@@ -36,10 +36,23 @@ const Hackathons: CollectionConfig = {
             type: 'richText'
         },
         {
+            name: 'requirements',
+            type: 'richText'
+        },
+        {
             name: 'rules',
             type: 'richText'
         },
+        {
+            name: 'selection_criteria',
+            label: "Selection Criteria",
+            type: 'richText'
+        },
 
+        {
+            name: 'prizes',
+            type: 'richText'
+        },
         {
             name: 'potraitImage', // required
             type: 'upload', // required
@@ -52,8 +65,6 @@ const Hackathons: CollectionConfig = {
             relationTo: 'media', // required
             required: true,
         },
-
-
         {
             name: 'type',
             type: 'select',
@@ -72,6 +83,28 @@ const Hackathons: CollectionConfig = {
                 position: 'sidebar',
             }
         },
+        {
+            name: 'timepoint',
+            type: 'select',
+            options: [
+              {
+                value: 'past',
+                label: 'Past'
+              },
+              {
+                value: 'upcoming',
+                label: 'Upcoming'
+              },
+              {
+                value: 'ongoing',
+                label: 'Ongoing'
+              }
+            ],
+            defaultValue: 'upcoming',
+            admin: {
+              position: 'sidebar',
+            }
+          },
         {
             name: 'approved',
             type: 'select',
