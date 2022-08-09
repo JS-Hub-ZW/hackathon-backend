@@ -11,6 +11,7 @@ import Hosters from './collections/Hosters';
 import HackathonCategories from './collections/HackathonCategories';
 import Media from './collections/Media';
 import Sponsors from './collections/Sponsors';
+import Contributers from './collections/Contributers';
 
 
 export default buildConfig({
@@ -29,6 +30,7 @@ export default buildConfig({
     Hackers,
     Hosters,
     Sponsors,
+    Contributers,
     Media
   ],
   typescript: {
