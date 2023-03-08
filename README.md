@@ -32,6 +32,9 @@ npm run start
 
 ## Contribution
 
+### Designs
+Check the `./designs` folder. Those files should be opened with Excalidraw
+
 ### Submitting
 When you do your pull request please describe your feature
 
@@ -50,6 +53,7 @@ When you do your pull request please describe your feature
 *Please declare all variables*
 
 `let animalPlanet = 0`
+
 `const animalPlanet = 0`
 
 ## Spoecial Thanks
