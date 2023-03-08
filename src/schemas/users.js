@@ -12,4 +12,4 @@ const userSchema = new Schema({
 });
 
 // Compile model from schema
-const UserModel = mongoose.model("userSchema", userSchema);
+const User = mongoose.model("User", userSchema);
