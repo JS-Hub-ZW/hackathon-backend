@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 // Define schema
 const Schema = mongoose.Schema;
 
@@ -14,4 +16,4 @@ const userSchema = new Schema({
 // Compile model from schema
 const User = mongoose.model("User", userSchema);
 
-export default User;
+module.exports = User
