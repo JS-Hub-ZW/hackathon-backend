@@ -47,7 +47,7 @@ const eventSchema = new Schema({
     required: true
   },
   prizes: {
-    type: String,
+    type:[Object],
     required: true
   }
 });
