@@ -38,7 +38,7 @@ events = [{
     "imagePortrait": "https://www.example.com/images/spring-fair-portrait.jpg",
     "imageLandscape": "https://www.example.com/images/spring-fair-landscape.jpg",
     "admission": "Free",
-    "type": "Community event",
+    "type": "community_event",
     "prizes": [
         {
             id: 1,
@@ -101,7 +101,7 @@ events = [{
     "imagePortrait": "https://www.example.com/images/spring-fair-portrait.jpg",
     "imageLandscape": "https://www.example.com/images/spring-fair-landscape.jpg",
     "admission": "$5",
-    "type": "Community event",
+    "type": "community_event",
     "prizes": []
   }]
 

@@ -1,15 +1,15 @@
 var express = require('express');
-const { default: events } = require('../../data/events');
+const  events = require('../../data/events');
 var router = express.Router();
 
 /* GET events listing. */
-router.get('/events/:type', function(req, res, next) {
+router.get('/:type?', function(req, res, next) {
 
   let type = req.params.type
   let results = []
 
   if (type){
-    results = events.filter(e => e.type == type)
+    results = events?.filter(e => e.type == type)
   }else{
     results = events 
   }
@@ -24,7 +24,7 @@ router.get('/events/:type', function(req, res, next) {
 
 
 /* POST events create. */
-router.post('/events/create', function(req, res, next) {
+router.post('/create', function(req, res, next) {
 
     let event = req.body
     
@@ -38,7 +38,7 @@ router.post('/events/create', function(req, res, next) {
 
 
 /* POST events update. */
-router.post('/events/update/:id', function(req, res, next) {
+router.post('/update/:id', function(req, res, next) {
 
     let id = req.params.id
     let result 
@@ -53,7 +53,7 @@ router.post('/events/update/:id', function(req, res, next) {
 
   
   /* POST events delete. */
-router.post('/events/delete/:id', function(req, res, next) {
+router.post('/delete/:id', function(req, res, next) {
 
     let id = req.params.id 
     let result
