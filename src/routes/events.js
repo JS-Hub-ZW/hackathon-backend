@@ -23,6 +23,20 @@ router.get('/events/:type', function(req, res, next) {
 });
 
 
+/* POST events create. */
+router.post('/events/create', function(req, res, next) {
+
+    let event = req.body
+    
+  
+    res.send({
+      status: true,
+      message: "Operation was successful",
+      data: event
+    });
+  });
+
+
 /* POST events update. */
 router.post('/events/update/:id', function(req, res, next) {
 
