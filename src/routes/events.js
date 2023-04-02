@@ -30,12 +30,15 @@ router.get('/:type?', async function(req, res, next) {
 router.post('/create', function(req, res, next) {
 
     let event = req.body
+
+    const newEvent = new Event(event)
+    newEvent.save()
     
   
     res.send({
       status: true,
       message: "Operation was successful",
-      data: event
+      data: newEvent
     });
   });
 
