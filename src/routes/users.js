@@ -3,7 +3,7 @@ const User = require('../schemas/users');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/:id', async function(req, res, next) {
+router.get('/:id?', async function(req, res, next) {
   
   try{
     let userId = req.params.id
@@ -58,7 +58,7 @@ router.post('/create', async function(req, res, next) {
 });
 
 /* PUT users update. */
-router.put('/update/:id', async function(req, res, next) {
+router.post('/update/:id', async function(req, res, next) {
   try {
     let user = req.body
     let id = req.params.id
@@ -81,7 +81,7 @@ router.put('/update/:id', async function(req, res, next) {
 });
 
 /* DELETE users delete. */
-router.delete('/delete/:id', async function(req, res, next) {
+router.post('/delete/:id', async function(req, res, next) {
   try {
     let id = req.params.id
 
