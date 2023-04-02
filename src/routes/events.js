@@ -1,17 +1,20 @@
 var express = require('express');
-const  events = require('../../data/events');
+const Event = require('../schemas/events');
+// const  events = require('../../data/events');
 var router = express.Router();
 
 /* GET events listing. */
-router.get('/:type?', function(req, res, next) {
+router.get('/:type?', async function(req, res, next) {
 
   let type = req.params.type
   let results = []
 
+
+
   if (type){
-    results = events?.filter(e => e.type == type)
+    results = await Event.find({type: type})
   }else{
-    results = events 
+    results = await Event.find({})
   }
 
 
