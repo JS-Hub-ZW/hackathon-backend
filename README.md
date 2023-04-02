@@ -34,7 +34,7 @@ npm run start
 To seed the database run the followinf
 
 ```sh
-npm run seed
+npm run start with-seeds
 ```
 
 ## Testing
