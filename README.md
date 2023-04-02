@@ -29,6 +29,17 @@ npm install
 npm run start
 ```
 
+## Seeding
+
+To seed the database run the followinf
+
+```sh
+npm run seed
+```
+
+## Testing
+To be updated
+
 
 ## Contribution
 
