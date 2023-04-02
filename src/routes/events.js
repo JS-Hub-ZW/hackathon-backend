@@ -61,16 +61,17 @@ router.post('/update/:id', async function(req, res, next) {
 
   
   /* POST events delete. */
-router.post('/delete/:id', function(req, res, next) {
+router.post('/delete/:id', async function(req, res, next) {
 
-    let id = req.params.id 
-    let result
+    let eventId = req.params.id 
+
+    const deletedEvent = await Event.findByIdAndDelete(eventId)
 
 
     res.send({
       status: true,
       message: "Operation was successful",
-      data: result
+      data: deletedEvent
     });
   });
   
