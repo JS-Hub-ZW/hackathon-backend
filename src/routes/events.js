@@ -44,16 +44,18 @@ router.post('/create', function(req, res, next) {
 
 
 /* POST events update. */
-router.post('/update/:id', function(req, res, next) {
+router.post('/update/:id', async function(req, res, next) {
 
-    let id = req.params.id
-    let result 
+    let eventId = req.params.id
+    let eventData = req.body
+
+    const updatedEvent = await Event.findByIdAndUpdate(eventId, eventData, { new: true });
     
   
     res.send({
       status: true,
       message: "Operation was successful",
-      data: result
+      data: updatedEvent
     });
   });
 
