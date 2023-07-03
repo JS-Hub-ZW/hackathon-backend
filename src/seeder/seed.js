@@ -6,7 +6,7 @@ const events = require("../../data/events")
 
 async function seedDB(){
 await User.deleteMany({})
-const inserted = await User.insertMany([
+const insertedUsers = await User.insertMany([
     {name: 'John', surname: 'Doe', email: 'j@doe.com', password: '1234'  },
     { name: 'Mary', surname: 'Doe', email: 'm@doe.com', password: '1234' },
     { name: 'Jane', surname: 'Doe', email: 'jn@doe.com', password: '1234'  },
@@ -18,7 +18,7 @@ const inserted = await User.insertMany([
 
 
 
-const events = await Event.insertMany([
+const insertedEvents = await Event.insertMany([
     ...events
 ])
 
