@@ -265,6 +265,53 @@ events = [{
   "prizes": [
     
   ]
+},
+
+
+{
+  "date": "2023-07-07",
+  "time": "10:00am",
+  "name": "Dev Picninc",
+  "venue": "Rainbow Gardens",
+  "hosts": [
+    {
+      "name": "John Smith",
+      "email": "john.smith@example.com"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Zindi",
+      "website": "https://www.econet.co.zw/"
+    },
+    {
+      "name": "Netro Zim",
+      "website": "https://www.xyz.com/"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Joe Brown",
+      "email": "joe.brown@example.com",
+      "phone": "+1-555-1234"
+    },
+    {
+      "name": "Sara Jones",
+      "email": "sara.jones@example.com",
+      "phone": "+1-555-5678"
+    }
+  ],
+  "imagePortrait": "https://images.unsplash.com/photo-1593034509785-5b17ba49f683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGljbmljfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+  "imageLandscape": "https://images.unsplash.com/photo-1596241913242-b20788b3dfeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+  "admission": "Free",
+  "type": "community_event",
+  "prizes": [
+    
+  ]
 }
 
 ]
