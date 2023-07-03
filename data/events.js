@@ -377,6 +377,69 @@ events = [{
   ]
 },
 
+{
+  "date": "2023-07-07",
+  "time": "10:00am",
+  "name": "State of Devs",
+  "venue": "Twitter",
+  "hosts": [
+    {
+      "name": "John Smith",
+      "email": "john.smith@example.com"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Econet",
+      "website": "https://www.econet.co.zw/"
+    },
+    {
+      "name": "XYZ Inc.",
+      "website": "https://www.xyz.com/"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Joe Brown",
+      "email": "joe.brown@example.com",
+      "phone": "+1-555-1234"
+    },
+    {
+      "name": "Sara Jones",
+      "email": "sara.jones@example.com",
+      "phone": "+1-555-5678"
+    }
+  ],
+  "imagePortrait": "https://images.unsplash.com/photo-1525034405510-833d4c7444a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
+  "imageLandscape": "https://images.unsplash.com/photo-1514480439008-da032651eb4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+  "admission": "Free",
+  "type": "community_event",
+  "prizes": [
+    {
+      id: 1,
+      amount: 300,
+      name: "1st Prize",
+      description: "Some descripiton here"
+    },
+    {
+      id: 2,
+      amount: 200,
+      name: "2nd Prize",
+      description: "Some descripiton here"
+    },
+    {
+      id: 3,
+      amount: 100,
+      name: "2rd Prize",
+      description: "Some descripiton here"
+    }
+  ]
+},
+
 ]
 
 
