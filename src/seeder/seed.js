@@ -1,6 +1,8 @@
 const User = require('../schemas/users')
 const Event = require('../schemas/events')
 
+const events = require("../../data/events")
+
 
 async function seedDB(){
 await User.deleteMany({})
@@ -13,5 +15,13 @@ const inserted = await User.insertMany([
     ])
     console.log('Starting with new data in the database...')
 }
+
+
+
+const events = await Event.insertMany([
+    ...events
+])
+
+
 
 module.exports = seedDB
