@@ -67,7 +67,7 @@ When you do your pull request please describe your feature
 
 `const animalPlanet = 0`
 
-## Spoecial Thanks
+## Special Thanks
 
 I want to thank these lovely heroes and heroins
 
