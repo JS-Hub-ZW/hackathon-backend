@@ -1,4 +1,6 @@
-events = [{
+events = [
+  
+{
   "date": "2023-04-15",
   "time": "10:00am",
   "name": "Spring Fair",
@@ -104,6 +106,8 @@ events = [{
   "type": "community_event",
   "prizes": []
 },
+
+
 {
   "date": "2023-05-15",
   "time": "19:00",
@@ -439,6 +443,226 @@ events = [{
     }
   ]
 },
+
+
+{
+  "date": "2023-07-07",
+  "time": "10:00am",
+  "name": "Built different",
+  "venue": "Joina City",
+  "hosts": [
+    {
+      "name": "John Smith",
+      "email": "john.smith@example.com"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Econet",
+      "website": "https://www.econet.co.zw/"
+    },
+    {
+      "name": "XYZ Inc.",
+      "website": "https://www.xyz.com/"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Joe Brown",
+      "email": "joe.brown@example.com",
+      "phone": "+1-555-1234"
+    },
+    {
+      "name": "Sara Jones",
+      "email": "sara.jones@example.com",
+      "phone": "+1-555-5678"
+    }
+  ],
+  "imagePortrait": "https://plus.unsplash.com/premium_photo-1675242132204-f85c6e659b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80",
+  "imageLandscape": "https://images.unsplash.com/photo-1670269069776-a1337c703669?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
+  "admission": "Free",
+  "type": "community_event",
+  "prizes": [
+  ]
+},
+
+
+{
+  "date": "2023-07-07",
+  "time": "10:00am",
+  "name": "Chat GPT Hackathon",
+  "venue": "Bulawayo, Lalapanzi",
+  "hosts": [
+    {
+      "name": "John Smith",
+      "email": "john.smith@example.com"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Econet",
+      "website": "https://www.econet.co.zw/"
+    },
+    {
+      "name": "XYZ Inc.",
+      "website": "https://www.xyz.com/"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Joe Brown",
+      "email": "joe.brown@example.com",
+      "phone": "+1-555-1234"
+    },
+    {
+      "name": "Sara Jones",
+      "email": "sara.jones@example.com",
+      "phone": "+1-555-5678"
+    }
+  ],
+  "imagePortrait": "https://images.unsplash.com/photo-1655634535290-6bab0013accc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
+  "imageLandscape": "https://plus.unsplash.com/premium_photo-1682075576406-667e38d23245?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+  "admission": "Free",
+  "type": "community_event",
+  "prizes": [
+    {
+      id: 1,
+      amount: 300,
+      name: "1st Prize",
+      description: "Some descripiton here"
+    },
+    {
+      id: 2,
+      amount: 200,
+      name: "2nd Prize",
+      description: "Some descripiton here"
+    },
+    {
+      id: 3,
+      amount: 100,
+      name: "2rd Prize",
+      description: "Some descripiton here"
+    }
+  ]
+},
+
+
+{
+  "date": "2023-07-07",
+  "time": "10:00am",
+  "name": "MongoDB Hackathon",
+  "venue": "Bulawayo, Lalapanzi",
+  "hosts": [
+    {
+      "name": "John Smith",
+      "email": "john.smith@example.com"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Econet",
+      "website": "https://www.econet.co.zw/"
+    },
+    {
+      "name": "XYZ Inc.",
+      "website": "https://www.xyz.com/"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Joe Brown",
+      "email": "joe.brown@example.com",
+      "phone": "+1-555-1234"
+    },
+    {
+      "name": "Sara Jones",
+      "email": "sara.jones@example.com",
+      "phone": "+1-555-5678"
+    }
+  ],
+  "imagePortrait": "https://files.casted.us/99952939-946a-46e0-88ee-7bcd794f5835.png",
+  "imageLandscape": "https://community-cdn-digitalocean-com.global.ssl.fastly.net/emSBsESzw1x2Ya8W3Uo9LihD",
+  "admission": "Free",
+  "type": "community_event",
+  "prizes": [
+    {
+      id: 1,
+      amount: 300,
+      name: "1st Prize",
+      description: "Some descripiton here"
+    },
+    {
+      id: 2,
+      amount: 200,
+      name: "2nd Prize",
+      description: "Some descripiton here"
+    },
+    {
+      id: 3,
+      amount: 100,
+      name: "2rd Prize",
+      description: "Some descripiton here"
+    }
+  ]
+},
+
+{
+  "date": "2023-07-07",
+  "time": "10:00am",
+  "name": "Dev Ketchup",
+  "venue": "Africa Unity Square",
+  "hosts": [
+    {
+      "name": "John Smith",
+      "email": "john.smith@example.com"
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Zindi",
+      "website": "https://www.econet.co.zw/"
+    },
+    {
+      "name": "Netro Zim",
+      "website": "https://www.xyz.com/"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Joe Brown",
+      "email": "joe.brown@example.com",
+      "phone": "+1-555-1234"
+    },
+    {
+      "name": "Sara Jones",
+      "email": "sara.jones@example.com",
+      "phone": "+1-555-5678"
+    }
+  ],
+  "imagePortrait": "https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+  "imageLandscape": "https://images.unsplash.com/photo-1670398564097-0762e1b30b3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80",
+  "admission": "Free",
+  "type": "community_event",
+  "prizes": [
+    
+  ]
+}
 
 ]
 
