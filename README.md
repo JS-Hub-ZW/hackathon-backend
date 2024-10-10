@@ -29,6 +29,12 @@ npm install
 npm run start
 ```
 
+
+## DB Connection
+Use these credentials to connect to the mongo db instance
+
+mongodb+srv://jshubzw:gG8nSRlP5skp2AAI@cluster0.o9gge.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
 ## Seeding
 
 To seed the database run the followinf
