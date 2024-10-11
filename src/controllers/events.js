@@ -1,6 +1,6 @@
 const Event = require('../schemas/events');
 
-export async function getEvents(req, res, _next) {
+const getEvents = async function (req, res, _next) {
 
     try {
         let type = req.params.type
@@ -24,12 +24,12 @@ export async function getEvents(req, res, _next) {
     }
 }
 
-export function createEvents(req, res, _next) {
+const createEvents = async function (req, res, _next) {
     try {
         let event = req.body
 
         const newEvent = new Event(event)
-        newEvent.save()
+        await newEvent.save()
 
         res.send({
             status: true,
@@ -46,7 +46,7 @@ export function createEvents(req, res, _next) {
     }
 }
 
-export async function updatedEvent(req, res, _next) {
+const updatedEvent = async function (req, res, _next) {
 
     try {
         let eventId = req.params.id
@@ -67,7 +67,7 @@ export async function updatedEvent(req, res, _next) {
     }
 }
 
-export async function deleteEvent(req, res, _next) {
+const deleteEvent = async function (req, res, _next) {
 
     try {
         let eventId = req.params.id
@@ -86,3 +86,5 @@ export async function deleteEvent(req, res, _next) {
         })
     }
 }
+
+module.exports = {getEvents, createEvents, updatedEvent, deleteEvent};
